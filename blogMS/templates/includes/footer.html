@@ -1,0 +1,40 @@
+{% load static %}
+
+<footer class="bg-pink-400 m-4">
+  <div class="flex justify-center">
+      
+    <div class="flex mr-10">
+      <a href="{% url 'home_app:index' %}" class="flex items-center mb-4 sm:mb-0">
+        <img src="{% static 'img/logo.png' %}"  class="h-16 mr-3">  
+      </a>
+    </div>
+    <div class="ml-10">  
+      <h3 class="font-semibold text-3xl mt-6">Formulario de Contacto:</h3>
+      <form method="POST" action="{% url 'home_app:add-contact' %}">{% csrf_token %}
+        <div class="grid md:grid-cols-2 md:gap-6">
+          <div class=" w-full my-6 group">
+              <input type="text" name="full_name" id="id_full_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-pink-800 focus:outline-none focus:ring-0 focus:border-pink-700 peer " placeholder="Nombres" required />
+              
+          </div>
+          <div class=" w-full my-6 group">
+            <input type="email" name="email" id="id_email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-pink-800 focus:outline-none focus:ring-0 focus:border-pink-700 peer" placeholder="Correo electrónico " required />
+          </div>
+        </div>
+        
+          <div class=" w-full mb-6 mt-6 group">
+              <textarea name="messagge" id="id_messagge" rows="4" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-pink-800 focus:outline-none focus:ring-0 focus:border-pink-700 peer" placeholder="Mensaje " required /></textarea>
+          </div>
+          
+          <button type="submit" class="w-full mt-10 text-white bg-pink-700 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            enviar</button>
+        </form>
+    </div>
+  </div>
+  <hr class="mt-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+  <span class="flex justify-center text-sm text-gray-700 sm:text-center">© 2023 <a href="https://mujeressembradorasinternacional.com/" class="hover:underline">.Mujeres Sembradoras Internacional™</a>. Todos los derechos reservados.</span>
+</footer>
+
+
+
+        
+        
