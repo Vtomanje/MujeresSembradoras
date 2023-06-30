@@ -5,8 +5,8 @@
     
             <nav>
                 <ul class="flex items-center justify-between font-semibold text-sm text-gray-100 no-underline">
-                    <li><a class="hover:text-gray-100 hover:underline px-4 mx-4">{{ correo }}</a></li>
-                    <li><a class="hover:text-gray-100 hover:underline px-4">Telf.: {{ phone }}</a></li>
+                    <li><a class="hover:text-gray-100 hover:underline px-4 mx-4">mujeressembradorasvidanueva@outlook.com</a></li>
+                    <li><a class="hover:text-gray-100 hover:underline px-4">Telf.: +1(407)6568523</a></li>
                 </ul>
             </nav>
     
@@ -28,11 +28,15 @@
     
     </nav>
 
-    <header class="w-full container mx-auto">
-        <div class="flex items-center py-2">
-            <a class="" href="{% url 'home_app:index' %}">
+    <header>
+        <div class="w-full container mx-auto flex flex-wrap items-center justify-between">
+            <a class="mb-4" href="{% url 'home_app:index' %}">
                 <img src="{% static 'img/logo.png' %}"  class="h-16 mx-6 mt-2">
             </a>
+            <div class="flex items-center text-sm no-underline mr-6 pr-2">
+                <a href="{% url 'users_app:user-login' %}" class="text-gray-600 hover:bg-pink-400 hover:text-white rounded py-2 px-2 mx-1">Ingresar</a>
+                <a href="{% url 'users_app:user-register' %}" class="text-gray-600 hover:bg-pink-400 hover:text-white rounded py-2 px-2 mx-1">Registrarse</a>
+            </div>
         </div>
     </header>
 
