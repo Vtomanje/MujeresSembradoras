@@ -11,7 +11,7 @@
         <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <div class="flex flex-col items-center pb-10">
                 
-                    <img class="w-36 h-36 rounded" src="/docs/images/people/profile-picture-5.jpg">
+                    <img class="w-36 h-36 rounded" src="{% static 'img/avatar.jpg' %}">
               
                 <h5 class="mb-1 mt-2 text-xl font-medium text-gray-900 dark:text-white">{{ user.full_name }}</h5>
                 <span class="text-sm text-gray-500 dark:text-gray-400">{{ user.ocupation}}</span>
@@ -37,19 +37,19 @@
                 </div>
             </a>
             <hr>
-            <p class="text-sm mt-2">
-                 <p class="font-sans text-gray-400">Creado por: {{entrada.entry.user}}</p> 
+            <p class="text-sm mt-2 ml-6">
+                 <p class="font-sans text-gray-400 ml-4">Creado por: {{entrada.entry.user}}</p> 
             </p>
-            <p class="text-sm text-gray-500">Publicado {{entrada.entry.publicado}}</p>
+            <p class="text-sm text-gray-500 ml-4">Publicado {{entrada.entry.publicado}}</p>
 
-            <div class="flex mt-4 space-x-3 md:mt-6">
-                <a href="{% url 'users_app:user-logout' %}" 
+            <form class="flex mt-4 space-x-3 md:mt-6" method="POST" action="{% url 'favoritos_app:delete-favoritos' entrada.id %}">{% csrf_token %}
+                <a href="{% url 'entrada_app:entry-detail' entrada.entry.id %}" 
                 class="inline-flex items-center ml-4 mb-2 px-4 py-2 text-sm font-medium text-center text-white bg-yellow-400 rounded-lg hover:bg-yellow-500 ">
-            ver</a>
-                <a href="{% url 'users_app:user-logout' %}" 
+                ver</a>
+                <button type="submit" 
                 class="inline-flex items-center mb-2 px-4 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-700 ">
-            Eliminar</a>
-            </div>
+                Eliminar</button>
+            </form>
         
         </article>
         

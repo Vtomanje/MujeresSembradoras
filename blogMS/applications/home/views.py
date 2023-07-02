@@ -37,5 +37,13 @@ class SuscribersCreateView(CreateView):
 class ContactCreateView(CreateView):
     form_class = ContactForm
     success_url = '.'
+    
+
+    
+class quienesSomosView(TemplateView):
+    template_name = "home/quienes-somos.html"
+    
+    
+    
 
     

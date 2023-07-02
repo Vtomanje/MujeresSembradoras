@@ -33,7 +33,7 @@
     <aside class="w-full md:w-1/3 flex flex-col items-center px-3">
 
         <div class="w-full bg-white shadow flex flex-col my-4 p-6">
-            <div class="w-full"><img src="{{ entry.image.url }}"></div><!--PENDIENTE NO MUESTRA LA IMAGEN-->
+            <div class="w-full"><img src="{{ entry.image.url }}"></div>
             <p class="pb-2 mt-8">{{ entry.resume }}</p>
             <form action="{% url 'favoritos_app:add-favoritos' entry.id %}" method="POST">{% csrf_token %}
                 <button type="submit" class="block text-white bg-pink-700 mt-4 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -44,6 +44,7 @@
 
         <div class="w-full bg-white shadow flex flex-col my-4 p-6">
             <p class="text-xl font-semibold pb-5">Instagram</p>
+            
             <div class="grid grid-cols-3 gap-3">
                 <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=1">
                 <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=2">

@@ -2,9 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy, reverse
-from django.views.generic import ListView, View
+from django.views.generic import ListView, View, DeleteView
 from .models import Favorites
 from applications.entrada.models import Entry
+from django.contrib import messages
 
 
 class UserPageView(LoginRequiredMixin, ListView):
@@ -23,11 +24,20 @@ class AddFavoritosView(LoginRequiredMixin, View):
         usuario =self.request.user
         entrada = Entry.objects.get(id=self.kwargs['pk'])
         # Registramos favoritos
-        Favorites.objects.create(
-            user=usuario,
-            entry=entrada,
-        )
+       
         
-        return HttpResponseRedirect(
-            reverse('favoritos_app:perfil')
+        if Favorites.objects.filter(entry=entrada).exists():
+            messages.error(request, "Este post ya esta guardado !!!")
+            return HttpResponseRedirect(reverse('favoritos_app:perfil'))
+        
+        elif Favorites.objects.create(user=usuario, entry=entrada):
+            
+            return HttpResponseRedirect(
+                reverse('favoritos_app:perfil')
         )
+    
+class FavoritosDeleteView(DeleteView):
+    model = Favorites
+    success_url = reverse_lazy('favoritos_app:perfil')
+   
+

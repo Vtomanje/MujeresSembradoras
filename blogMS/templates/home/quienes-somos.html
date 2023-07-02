@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load  static %}
+
+{% block content %}
+
+{% include "includes/header.html" %}
+
+    
+<section class="shadow-lg">
+    <img src="{% static 'img/banner.jpg' %}" class="w-full">
+</section>
+
+<div class="container mx-auto py-6 bg-pink-200">
+    <div class="bg-white  text-item-center text-justify">
+        <div class="flex flex-col items-center py-12">
+            <a class="font-bold text-pink-600 uppercase hover:text-pink-700 text-7xl">
+                Visión
+            </a>
+            <p class="w-1/2 mt-10 text-2xl text-center text-gray-600">
+                Formar una comunidad de mujeres restauradas y prosperadas en todas las áreas
+                de sus vidas, con la ayuda de Dios, con el voluntariado de otras mujeres y 
+                diversas organización de apoyo.
+            </p>
+        </div>
+    </div>
+    <hr>
+    <br>
+    <div class="bg-white  text-item-center text-justify">
+        <div class="flex flex-col items-center py-12">
+            <a class="font-bold text-pink-600 uppercase hover:text-pink-700 text-7xl">
+                Misión
+            </a>
+            <p class="w-1/2 mt-10 text-2xl text-center text-gray-600">
+                Promover eventos de ayuda social a mujeres, con el fin de levantar, restaurar y Formar
+                mujeres productivas y prósperas en todas las áreas de su vida.
+            </p>
+        </div>
+    </div>
+    <hr>
+    <div class="bg-white  text-item-center text-justify">
+        <div class="flex flex-col items-center py-12">
+            <a class="font-semibold text-gray-500 hover:text-gray-700 text-lg">
+               mujeressembradorasvidanueva@outlook.com
+            </a>
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!-- FIN tercer bloque -->
+{% include "includes/footer.html" %}
+
+{% endblock content %}
