@@ -29,7 +29,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     ocupation = models.CharField('Ocupacion', max_length=30, blank=True)
     genero = models.CharField(max_length=1, choices=GENDER_CHOICES, blank=True)
     date_birth = models.DateField('Fecha de nacimiento',  blank=True, null=True)
-    avatar = models.ImageField('Avatar', upload_to='user', blank=True)
+   
    
     #
     is_staff = models.BooleanField(default=False)
@@ -47,25 +47,3 @@ class User(AbstractBaseUser, PermissionsMixin):
     def get_full_name(self):
         return self.full_name
     
-"""class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
-    picture = models.ImageField(default='users/user_default_profile.png', upload_to=user_directory_path_profile)
-
-    def __str__(self):
-        return self.user.full_name
-
-def create_user_profile(sender, instance, created, **kwargs):
-    if created:
-        Profile.objects.create(user=instance)
-        
-def save_user_profile(sender, instance, **kwargs):
-    
-    instance.profile.save()
-        
-
-# save created profile
-post_save.connect(create_user_profile, sender=User)
-
-# save created profile
-post_save.connect(save_user_profile, sender=User)"""
-

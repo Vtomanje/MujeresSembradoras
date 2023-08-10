@@ -36,7 +36,7 @@
             <div class="w-full"><img src="{{ entry.image.url }}"></div>
             <p class="pb-2 mt-8">{{ entry.resume }}</p>
             <form action="{% url 'favoritos_app:add-favoritos' entry.id %}" method="POST">{% csrf_token %}
-                <button type="submit" class="block text-white bg-pink-700 mt-4 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                <button type="submit" class=" w-full block text-white bg-pink-700 mt-4 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     Agregar a Favoritos
                 </button>
             </form>

@@ -8,6 +8,9 @@ from applications.entrada.models import Entry
 from django.contrib import messages
 
 
+
+
+
 class UserPageView(LoginRequiredMixin, ListView):
     template_name = "favoritos/perfil.html"
     context_object_name = 'entradas_user'

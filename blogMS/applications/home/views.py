@@ -1,11 +1,12 @@
 import datetime
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy, reverse
-
+from django.core.mail import send_mail
+from django.conf import settings
 from django.views.generic import (TemplateView, CreateView)
 from applications.entrada.models import Entry
-from .models import Home
+from .models import Home, Contact
 from .forms import SuscribersForm, ContactForm
 
 class HomePageView(TemplateView):
@@ -34,15 +35,35 @@ class SuscribersCreateView(CreateView):
    success_url = '.'
    
 
-class ContactCreateView(CreateView):
-    form_class = ContactForm
-    success_url = '.'
+def contacto(request):
     
+    if request.method == "POST":
+        print(1)
+        subject = request.POST["full_name"]
+        email = request.POST["email"]
+        message = request.POST["messagge"]
+        email_from = settings.EMAIL_HOST_USER
+        print(2)
+        recipient_list = ["etoomonline@gmail.com"]
+        print(3)
+        fulldata = "asunto:" + subject + "\nemail: " + email + "\nmessagge: " + message 
+
+        Contact.objects.create(
+            asunto = subject,
+            email = email,
+            message = message
+        )
+        print(4)
+        send_mail("Correo Recibido desde www.MujeresSembradorasInternacional", fulldata, email_from, recipient_list)
+       
+        return render(request, "contact.html") 
+    else:
+        return redirect("home_app:index")
+        
 
     
 class quienesSomosView(TemplateView):
     template_name = "home/quienes-somos.html"
-    
     
     
 

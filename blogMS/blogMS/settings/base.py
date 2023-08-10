@@ -1,6 +1,6 @@
 from django.core.exceptions import ImproperlyConfigured
 import json
-
+import os
 
 from pathlib import Path
 
@@ -39,8 +39,8 @@ DJANGO_APPS = (
     'django.contrib.humanize',
 
     
-    'tailwind',
-    'theme',
+    
+    
 )
 
 LOCAL_APPS = (
@@ -59,11 +59,7 @@ THIRD_PARTY_APPS = (
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
-TAILWIND_APP_NAME = 'theme'
-INTERNAL_IPS = [
-    "127.0.0.1",
-]
-MEDIA_URL=NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

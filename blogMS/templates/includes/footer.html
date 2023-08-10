@@ -5,10 +5,10 @@
       
     <div class="flex mr-10">
       <a href="{% url 'home_app:index' %}" class="flex items-center mb-4 sm:mb-0">
-        <img src="{% static 'img/logo.png' %}"  class="h-16 mr-3">  
+        <img src="{% static 'img/logo.png' %}"  class="md:h-16 mr-3">  
       </a>
     </div>
-    <div class="ml-10">  
+    <div class="flex flex-col ml-10">  
       <h3 class="font-semibold text-3xl mt-6">Formulario de Contacto:</h3>
       <form method="POST" action="{% url 'home_app:add-contact' %}">{% csrf_token %}
         <div class="grid md:grid-cols-2 md:gap-6">

@@ -38,15 +38,16 @@ class Suscribers(TimeStampedModel):
 
 class Contact(TimeStampedModel):
     """ Modelo de Contactos """
-    full_name = models.CharField('Nombre Completo', max_length=60)
+    asunto = models.CharField(max_length=250, default="")
     email = models.EmailField()
-    messagge = models.TextField()
+    message = models.TextField()
+    
     
     class Meta:
         verbose_name = 'Mensaje'
         verbose_name_plural = 'Mensajes'
         
     def __str__(self):
-        return self.full_name
+        return self.asunto + ' ---> ' + self.email
 
 
