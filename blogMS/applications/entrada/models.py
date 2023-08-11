@@ -9,8 +9,8 @@ from .managers import EntryManager
 class Category (TimeStampedModel):
     """ Categorias de una entrada """
     
-    short_name = models.CharField('Nombre corto', max_length=15, unique=True)
-    name = models.CharField('Nombre', max_length=15, unique=True)
+    short_name = models.CharField('Nombre corto', max_length=60, unique=True)
+    name = models.CharField('Nombre', max_length=60, unique=True)
     
  
     

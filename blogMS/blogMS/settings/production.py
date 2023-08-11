@@ -2,7 +2,7 @@ from .base import *
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["mujeressembradoras-b38489007cc4.herokuapp.com"]
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
@@ -13,7 +13,7 @@ DATABASES = {
         'NAME': get_secret('DB_NAME'),
         'USER': get_secret('USER'),
         'PASSWORD': get_secret('PASSWORD'),
-        'HOST': 'localhost',
+        'HOST': 'ec2-3-234-204-26.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
@@ -27,6 +27,7 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / "media"
+
 
 # ckeditor settings
 CKEDITOR_UPLOAD_PATH = '/uploads/'
