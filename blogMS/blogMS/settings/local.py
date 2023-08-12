@@ -20,13 +20,35 @@ DATABASES = {
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+{
+    "Version": "2012-10-17",
+    "Id": "Policy1689937643913",
+    "Statement": [
+        {
+            "Sid": "Stmt1689937619067",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "--------------------/*"
+        }
+    ]
+}
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / "media"
+AWS_ACCESS_KEY_ID = get_secret('KEY_ID')
+AWS_SECRET_ACCESS_KEY = get_secret('ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = 'msembradoras'
+AWS_S3_REGION_NAME = 'us-east-1' # Por ejemplo, 'us-east-1'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_DEFAULT_ACL = 'public-read'
+AWS_QUERYSTRING_AUTH = False
+
+# Configuración para almacenar archivos estáticos y multimedia
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, 'static')
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+MEDIA_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, 'media')
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
 
 
 

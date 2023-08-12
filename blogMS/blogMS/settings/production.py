@@ -20,13 +20,38 @@ DATABASES = {
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_TMP = os.path.join(BASE_DIR, 'static')
+# STATIC_URL = '/static/' -- solo para local
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / "media"
+os.makedirs(STATIC_TMP, exist_ok=True)
+os.makedirs(STATIC_ROOT, exist_ok=True)
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR / "static"),
+)
+
+AWS_ACCESS_KEY_ID = get_secret('KEY_ID')
+AWS_SECRET_ACCESS_KEY = get_secret('ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = get_secret('BUCKET_NAME')
+AWS_S3_REGION_NAME = 'us-east-1' # Por ejemplo, 'us-east-1'
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com' 
+AWS_S3_OBJECT_PARAMETERS ={
+    'CacheControl': 'max-age=86400'
+}
+AWS_LOCATION = 'static'
+AWS_DEFAULT_ACL = 'public-read'
+AWS_QUERYSTRING_AUTH = False
+AWS_HEADERS = {
+    'Access-Control-Allow-Origin': '*',
+}
+
+# Configuración para almacenar archivos estáticos y multimedia
+STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/staticfiles/'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 # ckeditor settings
