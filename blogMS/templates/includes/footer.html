@@ -2,13 +2,8 @@
 
 <footer class="bg-pink-400 m-4">
   <div class="flex justify-center">
-      
-    <div class="flex mr-10">
-      <a href="{% url 'home_app:index' %}" class="flex items-center mb-4 sm:mb-0">
-        <img src="{% static 'img/logo.png' %}"  class="md:h-16 mr-3">  
-      </a>
-    </div>
-    <div class="flex flex-col ml-10">  
+        
+    <div class="flex flex-col">  
       <h3 class="font-semibold text-3xl mt-6">Formulario de Contacto:</h3>
       <form method="POST" action="{% url 'home_app:add-contact' %}">{% csrf_token %}
         <div class="grid md:grid-cols-2 md:gap-6">
@@ -31,7 +26,8 @@
     </div>
   </div>
   <hr class="mt-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-  <span class="flex justify-center text-sm text-gray-700 sm:text-center">© 2023 <a href="https://mujeressembradorasinternacional.com/" class="hover:underline">.Mujeres Sembradoras Internacional™</a>. Todos los derechos reservados.</span>
+    <a href="https://etoomtechnology.com/" class="flex justify-center text-sm text-gray-100 sm:text-center hover:underline hover:text-gray-300">www.mujeressembradorasinternacional.com</a>
+    <span class="flex justify-center text-sm text-gray-50 sm:text-center">© 2023 Copyright: Mujeres Sembradoras Internacional™</span>
 </footer>
 
 

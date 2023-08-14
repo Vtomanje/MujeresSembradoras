@@ -13,7 +13,7 @@ DATABASES = {
         'NAME': get_secret('DB_NAME'),
         'USER': get_secret('USER'),
         'PASSWORD': get_secret('PASSWORD'),
-        'HOST': 'ec2-3-234-204-26.compute-1.amazonaws.com',
+        'HOST': 'ec2-54-89-111-237.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }

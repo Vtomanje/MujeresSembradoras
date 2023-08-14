@@ -22,7 +22,6 @@ DATABASES = {
 
 {
     "Version": "2012-10-17",
-    "Id": "Policy1689937643913",
     "Statement": [
         {
             "Sid": "Stmt1689937619067",
