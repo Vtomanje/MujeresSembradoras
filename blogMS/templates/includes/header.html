@@ -56,21 +56,21 @@
 
         
 
-            <ul class="w-full container mx-auto flex flex-row items-center justify-center lg:text-sm text-xs font-semibold uppercase mt-0 px-6">
+            <ul class="w-full container mx-auto flex flex-row items-center justify-center lg:text-sm text-xs lg:font-bold font-semibold uppercase mt-0 px-6">
                 <li>
-                    <a href="{% url 'home_app:index' %}" class="hover:bg-gray-400 rounded py-2 px-2 mx-2" aria-current="page">Inicio</a>
+                    <a href="{% url 'home_app:index' %}" class="hover:bg-gray-400 rounded py-2 lg:px-2 mx-2" aria-current="page">Inicio</a>
                 </li>
-                <li>
+                <!--<li>
                     <a href="{% url 'entrada_app:entry-lista' %}" class="hover:bg-gray-400 rounded py-2 px-2 mx-2">Blog</a>
+                </li>-->
+                <li>
+                    <a href="{% url 'entrada_app:entry-lista' %}" class="hover:bg-gray-400 rounded py-2 lg:px-2 mx-2">Eventos</a>
                 </li>
                 <li>
-                    <a href="{% url 'entrada_app:entry-lista' %}" class="hover:bg-gray-400 rounded py-2 px-2 mx-2">Eventos</a>
+                    <a href="{% url 'entrada_app:entry-lista' %}" class="hover:bg-gray-400 rounded py-2 lg:px-2 mxlg:-2">Contacto</a>
                 </li>
                 <li>
-                    <a href="{% url 'entrada_app:entry-lista' %}" class="hover:bg-gray-400 rounded py-2 px-2 mx-2">Contacto</a>
-                </li>
-                <li>
-                    <a href="{% url 'home_app:quienes-somos' %}" class="hover:bg-gray-400 rounded py-2 px-2 mx-2">Quienes Somos</a>
+                    <a href="{% url 'home_app:quienes-somos' %}" class="hover:bg-gray-400 rounded py-2 lg:px-2 mx-2">Quienes Somos</a>
                 </li>
             </ul>
             <!--<button class="block md:hidden py-3 px-4 mx-2 rounded focus:outline-none hover:bg-gray-200 group">
