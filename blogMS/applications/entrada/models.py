@@ -1,6 +1,10 @@
+# satandar Library
+from datetime import timedelta, datetime
+# librerias de django
 from django.db import models
 from django.conf import settings
-#app de terceros
+from django.template.defaultfilters import slugify
+# app de terceros
 from model_utils.models import TimeStampedModel
 from ckeditor_uploader.fields import RichTextUploadingField
 from .managers import EntryManager
@@ -59,6 +63,22 @@ class Entry(TimeStampedModel):
         
     def __str__(self):
         return self.title
+    
+    def save(self, *args, **kwargs):
+        # calculamos el total de segundos de la hora actual
+        now = datetime.now()
+        total_time = timedelta(
+            hours=now.hour,
+            minutes=now.minute,
+            seconds=now.second
+        )
+        seconds = int(total_time.total_seconds())
+        slug_unique = '%s %s' % (self.title, str(seconds))
+        
+        self.slug = slugify(slug_unique)
+        
+        super(Entry, self).save(*args, **kwargs)
+        
     
     
     

@@ -44,7 +44,7 @@ def contacto(request):
         message = request.POST["messagge"]
         email_from = settings.EMAIL_HOST_USER
         print(2)
-        recipient_list = ["etoomonline@gmail.com"]
+        recipient_list = ["mujeressembradorasvidanueva@outlook.com"]
         print(3)
         fulldata = "asunto:" + subject + "\nemail: " + email + "\nmessagge: " + message 
 
@@ -54,7 +54,7 @@ def contacto(request):
             message = message
         )
         print(4)
-        send_mail("Correo Recibido desde www.MujeresSembradorasInternacional", fulldata, email_from, recipient_list)
+        send_mail("Correo Recibido desde www.MujeresSembradorasInternacional.com", fulldata, email_from, recipient_list)
        
         return render(request, "contact.html") 
     else:

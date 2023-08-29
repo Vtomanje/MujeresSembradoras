@@ -23,7 +23,7 @@
                 <img class="p-6 w-full h-60 items-center" src="{{ entrada.image.url }}">
                 <button type="button" 
                 class="text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 font-medium rounded-sm text-sm px-5 py-2.5 text-center ml-6 mr-2 mb-2">
-                    <a href="{% url 'entrada_app:entry-detail' entrada.id %}">{{ entrada.title}}</a><!-- ojo modificar la url va a cada articulo de blog-->
+                    <a href="{% url 'entrada_app:entry-detail' entrada.slug %}">{{ entrada.title}}</a><!-- ojo modificar la url va a cada articulo de blog-->
                 </button>
                 
             </div>
@@ -93,7 +93,7 @@
      
             <div class="ml-2 p-4">
                 <div class="mt-2">
-                    <h4 class="font-bold text-2xl"><a href="{% url 'entrada_app:entry-detail' entrada.id %}">{{ entrada.title}}</a></h4>
+                    <h4 class="font-bold text-2xl"><a href="{% url 'entrada_app:entry-detail' entrada.slug %}">{{ entrada.title}}</a></h4>
                     <p class="mt-4">{{ entrada.resume | truncatechars:100 }}</p> 
                 </div>
                 

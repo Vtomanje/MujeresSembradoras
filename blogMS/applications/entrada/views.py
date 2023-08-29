@@ -23,7 +23,7 @@ class EntryListView(ListView):
         resultado = Entry.objects.buscar_entrada(kword, categoria)
         return resultado
     
-class EntryDeatilView(DetailView):
+class EntryDetailView(DetailView):
     template_name = "entrada/detail.html"
     model = Entry
     

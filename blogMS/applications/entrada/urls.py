@@ -5,5 +5,5 @@ app_name = "entrada_app"
 
 urlpatterns = [ 
     path('entradas/', views.EntryListView.as_view(), name='entry-lista'),  
-    path('entradas/<pk>', views.EntryDeatilView.as_view(), name='entry-detail'),  
+    path('entradas/<slug>', views.EntryDetailView.as_view(), name='entry-detail'),  
 ]

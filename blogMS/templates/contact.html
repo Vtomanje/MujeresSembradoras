@@ -1,5 +1,55 @@
-<html>
-    <body>
-        Gracias por enviar la informacion
-    </body>
-</html>
+<!-- head para PC -->
+{% extends "base.html" %}
+{% load  static %}
+
+{% block content %}
+
+
+<section class="container mx-auto py-20">
+    <div class="flex items-center justify-center">
+        <a class="mb-4" href="{% url 'home_app:index' %}">
+            <img src="{% static 'img/logo.png' %}"  class="h-16 mx-6 mt-4">
+        </a>
+    </div>
+
+    <div class="flex items-center justify-center">   
+        <h4 class="mt-10 ml-3 font-bold text-6xl"><a href="">¡Muchas gracias por escribirnos!</a></h4>
+    </div>
+
+    <div class="flex items-center justify-center">   
+        <p class="mt-10 font-semibold text-2xl text-pink-500 p-4">Hemos recibido tu mensaje, te responderemos a la brevedad posible, bendiciones!</p>
+    </div>
+
+    <div class="flex items-center justify-center">   
+        <p class="mt-10 font-semibold text-md p-4">Te invitamos a que revises nuestro blog www.mujeressembradorasinternacional.com 
+            y continúes recibiendo bendición para tu vida.</p>
+    </div>
+
+    <div class="flex items-center justify-center">   
+        <button type="button" 
+        class="text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 font-medium rounded-sm text-sm px-5 py-2.5 text-center ml-6 mr-2 mb-2">
+            <a href="{% url 'home_app:index' %}">volver a la página de inicio</a><!-- ojo modificar la url va a cada articulo de blog-->
+        </button>
+    </div>
+
+    <div class="flex items-center justify-center">   
+        <p class="mt-10 font-semibold text-md p-4">No te olvides de seguirnos en nuestras redes sociales.</p>
+    </div>
+
+    <div class="text-center justify-between">
+        <a class="ml-6 text-gray-800 " href="#">
+            <i class="fab fa-facebook"></i>
+        </a>
+        <a class="ml-6 text-gray-800 " href="#">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a class="ml-6 text-gray-800 " href="#">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a class="ml-6 text-gray-800 " href="#">
+            <i class="fab fa-linkedin"></i>
+        </a>
+    </div>
+</section>   
+
+{% endblock content %}
