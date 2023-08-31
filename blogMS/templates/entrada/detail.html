@@ -1,6 +1,22 @@
 {% extends "base.html" %}
 {% load  static %}
 
+{% block title %}
+{{ entry.title }}
+{% endblock title %}
+
+{% block description %}
+<meta name="description" content="{{ entry.resume }}">
+{% endblock description %}
+
+{% block tags %}
+<meta name="keywords" content="
+    {% for t in entry.tag.all %}
+        {{ t.name }},
+    {% endfor %}
+">
+{% endblock tags %}
+
 {% block content %}
 
 {% include "includes/header.html" %}
@@ -46,18 +62,21 @@
             <p class="text-xl font-semibold pb-5">Instagram</p>
             
             <div class="grid grid-cols-3 gap-3">
-                <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=1">
-                <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=2">
-                <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=3">
-                <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=4">
-                <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=5">
-                <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=6">
-                <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=7">
-                <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=8">
-                <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=9">
+                <img class="hover:opacity-75" src="{{ instagram.image1.url }}">
+                <img class="hover:opacity-75" src="{{ instagram.image2.url }}">
+                <img class="hover:opacity-75" src="{{ instagram.image3.url }}">
+                <img class="hover:opacity-75" src="{{ instagram.image4.url }}">
+                <img class="hover:opacity-75" src="{{ instagram.image5.url }}">
+                <img class="hover:opacity-75" src="{{ instagram.image6.url }}">
+                <img class="hover:opacity-75" src="{{ instagram.image7.url }}">
+                <img class="hover:opacity-75" src="{{ instagram.image8.url }}">
+                <img class="hover:opacity-75" src="{{ instagram.image9.url }}">
             </div>
-            <a href="#" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-6">
-                <i class="fab fa-instagram mr-2"></i> Follow @dgrzyb
+            <a href="https://www.instagram.com/mujeressembradorasintvn" class="w-full bg-pink-600 text-white font-semibold text-sm rounded hover:bg-pink-700 flex items-center justify-center px-2 py-3 mt-6">
+                <i class="fab fa-instagram mr-2"></i> Follow @mujeressembradorasintvn
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=100093439608646" class="w-full bg-blue-700 text-white font-semibold text-sm rounded hover:bg-blue-600 flex items-center justify-center px-2 py-3 mt-6">
+                <i class="fab fa-facebook mr-2"></i> Follow mujeressembradorasintvn
             </a>
         </div>
 

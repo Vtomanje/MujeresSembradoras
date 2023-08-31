@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from django.views.generic import ListView, DetailView
-from .models import Entry, Category
+from .models import Entry, Category, Instagram
 
 
 class EntryListView(ListView):
@@ -26,6 +26,14 @@ class EntryListView(ListView):
 class EntryDetailView(DetailView):
     template_name = "entrada/detail.html"
     model = Entry
+    
+    def get_context_data(self, *args, **kwargs):
+        context = super(EntryDetailView, self).get_context_data(**kwargs)
+        
+        # contexto para los articulos en instagram
+        context["instagram"] = Instagram.objects.latest('created')
+        
+        return context
     
     
 

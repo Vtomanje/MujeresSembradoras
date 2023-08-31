@@ -8,3 +8,5 @@ class FavoritesManager(models.Manager):
             user = usuario
             ).order_by('-created')
     
+    
+    

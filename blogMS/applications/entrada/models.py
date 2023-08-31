@@ -4,6 +4,7 @@ from datetime import timedelta, datetime
 from django.db import models
 from django.conf import settings
 from django.template.defaultfilters import slugify
+from django.urls import reverse_lazy
 # app de terceros
 from model_utils.models import TimeStampedModel
 from ckeditor_uploader.fields import RichTextUploadingField
@@ -64,6 +65,12 @@ class Entry(TimeStampedModel):
     def __str__(self):
         return self.title
     
+    def get_absolute_url(self):
+        return reverse_lazy(
+            "entrada_app:entry-detail", 
+            kwargs={"slug": self.slug})
+    
+    
     def save(self, *args, **kwargs):
         # calculamos el total de segundos de la hora actual
         now = datetime.now()
@@ -78,6 +85,31 @@ class Entry(TimeStampedModel):
         self.slug = slugify(slug_unique)
         
         super(Entry, self).save(*args, **kwargs)
+        
+class Instagram(TimeStampedModel):
+    """ Imagenes para Instagram """
+    
+    name = models.CharField('Nombre', max_length=200)
+    public = models.BooleanField(default=False)
+    image1 = models.ImageField('Imagen 1', upload_to='Instagram', null=True)
+    image2 = models.ImageField('Imagen 2', upload_to='Instagram', null=True)
+    image3 = models.ImageField('Imagen 3', upload_to='Instagram', null=True)
+    image4 = models.ImageField('Imagen 4', upload_to='Instagram', null=True)
+    image5 = models.ImageField('Imagen 5', upload_to='Instagram', null=True)
+    image6 = models.ImageField('Imagen 6', upload_to='Instagram', null=True)
+    image7 = models.ImageField('Imagen 7', upload_to='Instagram', null=True)
+    image8 = models.ImageField('Imagen 8', upload_to='Instagram', null=True)
+    image9 = models.ImageField('Imagen 9', upload_to='Instagram', null=True)
+   
+    
+    objects = EntryManager()
+    
+    class Meta:
+        verbose_name = 'Imagen Instagram'
+        verbose_name_plural = 'Imagenes Instagram'
+        
+        def __str__(self):
+            return self.name
         
     
     

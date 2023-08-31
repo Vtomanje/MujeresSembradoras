@@ -37,3 +37,9 @@ class EntryManager(models.Manager):
                 title__icontains=kword,
                 public=True
             ).order_by('-created')
+            
+    def entradas_en_instagram(self):
+        #devuelve las ultimas 9 entradas en home
+        return self.filter(
+            public=True,
+        ).order_by('-created')[:9]

@@ -42,5 +42,7 @@ class AddFavoritosView(LoginRequiredMixin, View):
 class FavoritosDeleteView(DeleteView):
     model = Favorites
     success_url = reverse_lazy('favoritos_app:perfil')
+    
+
    
 

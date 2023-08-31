@@ -46,3 +46,5 @@ class Favorites(TimeStampedModel):
         def __str__(self):
             return self.entry.title
     
+
+    
