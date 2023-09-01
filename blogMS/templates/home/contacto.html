@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load  static %}
+
+{% block content %}
+
+{% include "includes/header.html" %}
+
+<div class="container mx-auto flex flex-wrap py-6">
+    
+    <aside class="w-full md:w-1/2 flex flex-col items-center px-3">
+        <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div class="flex flex-col items-center pb-10">
+                
+                    <img class="w-60 h-36 rounded" src="{% static 'img/logo.png' %}">
+              
+                <h5 class="mb-1 mt-8 text-md font-medium text-gray-900 dark:text-white">MUJERES SEMBRADORAS INTERNACIONAL</h5>
+                <span class="mt-4 text-sm text-gray-500 dark:text-gray-400">Muejres de Reino</span>
+                <h5 class="mb-1 mt-4 text-sm font-medium text-gray-400">mujeressembradorasvidanueva@outlook.com</h5>
+
+            </div>
+        </div>
+    </aside>
+    <section class="w-full md:w-2/4 flex flex-col px-3">
+
+        <article class="flex flex-col md:w-full shadow my-4">
+            <!-- Article Image -->
+            <a class="flex flex-col w-full items-center bg-white md:flex-row md:max-w-xl dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <img class="object-cover w-full h-96 md:h-auto md:w-28 lg:w-48 ml-6" src="{% static 'img/whatsApp.png' %}" alt="">
+                <div class="w-full ml-10 p-4 leading-normal">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">WhatsApp</h5>
+                    <hr>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">+1 (321) 978-3033</p>
+                </div>
+            </a>
+
+            <a class="flex flex-col w-full items-center bg-white md:flex-row md:max-w-xl dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <img class="object-cover w-full h-96 md:h-auto md:w-28 lg:w-48 ml-6" src="{% static 'img/celular.png' %}" alt="">
+                <div class="w-full ml-10 p-4 leading-normal">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Celular</h5>
+                    <hr>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">+1 (321) 978-3033</p>
+                </div>
+            </a>
+
+            <a class="flex flex-col w-full items-center bg-white md:flex-row md:max-w-xl dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <img class="object-cover w-full h-96 md:h-auto md:w-28 lg:w-48 ml-6" src="{% static 'img/email.png' %}" alt="">
+                <div class="w-full ml-10 p-4 leading-normal">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Correo Eléctronico</h5>
+                    <hr>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">mujeressembradorasvidanueva@outlook.com</p>
+                </div>
+            </a>
+        </article>
+        
+      
+    </section>
+    
+        
+</div>
+
+<!-- FIN tercer bloque -->
+{% include "includes/footer.html" %}
+
+{% endblock content %}

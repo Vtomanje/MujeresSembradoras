@@ -64,6 +64,10 @@ def contacto(request):
     
 class quienesSomosView(TemplateView):
     template_name = "home/quienes-somos.html"
+
+
+class ContactoView(TemplateView):
+    template_name = "home/contacto.html"
     
     
 
